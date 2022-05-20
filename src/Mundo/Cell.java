@@ -9,18 +9,23 @@ public class Cell
 	// Para *A pathfinding.
 	private int gCost, hCost, fCost;
 	
-	public Cell( boolean pStartPos, boolean pEndingPos, boolean pBarrier )
+	public Cell( boolean pStartPos, boolean pEndingPos )
 	{
 		startPos = pStartPos;
 		endingPos = pEndingPos;
-		barrier = pBarrier;
+		barrier = false;
 		
 		gCost = 0;
 		hCost = 0;
 		fCost = 0;
 	}
 	
-	public boolean esBarrier()
+	public void volverBarrera()
+	{
+		barrier = !barrier;
+	}
+	
+	public boolean esBarrera()
 	{
 		return barrier;
 	}

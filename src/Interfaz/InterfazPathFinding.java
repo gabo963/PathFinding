@@ -13,6 +13,10 @@ public class InterfazPathFinding extends JFrame
 
 	private Mapa mundo;
 	
+	private PanelOpciones panelOpciones;
+	
+	private PanelMapa panelMapa;
+	
 	public InterfazPathFinding() throws Exception
 	{
 		setTitle("Path Finding") ;
@@ -21,11 +25,21 @@ public class InterfazPathFinding extends JFrame
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		
+		panelOpciones = new PanelOpciones(this);
+		add( panelOpciones, BorderLayout.NORTH );
+		
+		panelMapa = new PanelMapa(this);
+		add( panelMapa, BorderLayout.CENTER );
+		
+		// Pruebas:
+		iniciarMapa(5, 5);
 	}
 	
 	public void iniciarMapa( int pFilas, int pCols)
 	{
 		mundo = new Mapa( pFilas, pCols );
+		panelMapa.inicializar( mundo.darMapa() );
 	}
 	
 	public static void main(String[] args) 
